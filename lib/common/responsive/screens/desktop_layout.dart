@@ -15,19 +15,14 @@ class DesktopLayout extends StatelessWidget {
       backgroundColor: EColors.backgroundDark,
       body: Stack(
         children: [
+          // BackgroundTriangles(),
           Column(
             children: [
-              SizedBox(height: ESizes.appBarHeight),
+              // SizedBox(height: ESizes.appBarHeight),
               Expanded(
                 child: SingleChildScrollView(
                   controller: scrollController.scrollController,
-                  child: Column(
-                    children: [
-                      HomeScreen(),
-                      SizedBox(height: 600),
-                      ProjectsScreen(),
-                    ],
-                  ),
+                  child: Column(children: [HomeScreen(), ProjectsScreen()]),
                 ),
               ),
             ],

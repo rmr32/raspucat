@@ -13,10 +13,21 @@ class TrianglePainter extends CustomPainter {
   final bool isHovered;
   final int gradientDirection;
 
+  Path _trianglePath(Size size) {
+    final path = Path();
+    path.moveTo(size.width / 2, 0);
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height);
+    path.close();
+    return path;
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     if (isHovered) {
-      // Draw glow effect first (behind the main triangle)
+      /// --- GLOW EFFECT --- ///
+      ///
+      ///
       final glowPaint = Paint()
         ..color = color.withOpacity(0.3)
         ..style = PaintingStyle.stroke
@@ -25,15 +36,12 @@ class TrianglePainter extends CustomPainter {
         ..strokeJoin = StrokeJoin.round
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
 
-      final glowPath = Path();
-      glowPath.moveTo(size.width / 2, 0);
-      glowPath.lineTo(0, size.height);
-      glowPath.lineTo(size.width, size.height);
-      glowPath.close();
-      canvas.drawPath(glowPath, glowPaint);
+      canvas.drawPath(_trianglePath(size), glowPaint);
     }
 
-    // Create gradient for the triangle based on direction
+    /// --- GRADIENT DIRECTION --- ///
+    ///
+    ///
     Alignment begin, end;
     switch (gradientDirection) {
       case 0: // Top to bottom
@@ -57,18 +65,19 @@ class TrianglePainter extends CustomPainter {
         end = Alignment.bottomCenter;
     }
 
+    /// --- GRADIENT --- ///
+    ///
+    ///
     final gradient = LinearGradient(
       begin: begin,
       end: end,
-      colors: [
-        color.withOpacity(0.1), // Start corner - very transparent
-        color.withOpacity(0.5), // Middle - semi-transparent
-        color, // End corners - full opacity
-      ],
-      stops: const [0.0, 0.4, 1.0], // Smooth gradient transition
+      colors: [color.withOpacity(0.1), color.withOpacity(0.5), color],
+      stops: const [0.0, 0.4, 1.0],
     );
 
-    // Create gradient paint
+    /// --- PAINT --- ///
+    ///
+    ///
     final paint = Paint()
       ..shader = gradient.createShader(
         Rect.fromLTWH(0, 0, size.width, size.height),
@@ -78,12 +87,11 @@ class TrianglePainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
-    final path = Path();
-    path.moveTo(size.width / 2, 0);
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, size.height);
-    path.close();
-    canvas.drawPath(path, paint);
+    /// --- PATH  --- ///
+    ///
+    ///
+
+    canvas.drawPath(_trianglePath(size), paint);
   }
 
   @override

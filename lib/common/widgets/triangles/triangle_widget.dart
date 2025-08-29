@@ -15,11 +15,11 @@ class TriangleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// --- CONTROLLERS --- ///
-    final controller = Get.find<TriangleController>();
+    final triangleController = TriangleController.instance;
     final scrollController = EScrollController.instance;
 
     return Obx(() {
-      final triangle = controller.triangles[index].value;
+      final triangle = triangleController.triangles[index].value;
       final scrollOffset = scrollController.scrollController.hasClients
           ? scrollController.scrollController.offset
           : 0.0;
@@ -61,10 +61,13 @@ class TriangleWidget extends StatelessWidget {
         left: pos.dx,
         top: pos.dy,
         child: MouseRegion(
-          onEnter: (_) => controller.onTriangleHover(index, true),
-          onExit: (_) => controller.onTriangleHover(index, false),
+          onEnter: (_) => triangleController.onTriangleHover(index, true),
+          onExit: (_) => triangleController.onTriangleHover(index, false),
           child: GestureDetector(
-            onTap: () => controller.onTriangleTap(index),
+            onTap: () => triangleController.onTriangleTap(index),
+            // Allow scroll events to pass through
+            // behavior: HitTestBehavior.translucent,
+            behavior: HitTestBehavior.deferToChild,
             child: Transform.rotate(
               angle: triangle.rotation + animationValue * 2 * pi,
               child: AnimatedContainer(

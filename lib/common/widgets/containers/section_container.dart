@@ -1,39 +1,31 @@
 import 'package:raspucat/utils/constants/exports.dart';
 
 class SectionContainer extends StatelessWidget {
-  final String title;
-  final String description;
-  final Widget body;
+  final Widget child;
+  final double? paddingVertical;
+  final double? paddingHorizontal;
 
   const SectionContainer({
     super.key,
-    required this.title,
-    required this.description,
-    required this.body,
+    required this.child,
+    this.paddingVertical,
+    this.paddingHorizontal,
   });
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double paddingVertical = this.paddingVertical ?? ESizes.sectionMd;
+    final double paddingHorizontal = this.paddingHorizontal ?? ESizes.sectionSm;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 20),
-          Text(
-            description,
-            style: const TextStyle(color: Colors.white70, fontSize: 18),
-            textAlign: TextAlign.center,
-          ),
-        ],
+      padding: EdgeInsets.symmetric(
+        vertical: paddingVertical,
+        horizontal: paddingHorizontal,
       ),
+      width: width,
+      height: height,
+      child: child,
     );
   }
 }

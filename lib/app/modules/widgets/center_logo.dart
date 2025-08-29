@@ -5,51 +5,25 @@ class CenterLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double logoSize = (width < height ? width : height) * 0.5;
+
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: () {
-              Get.snackbar(
-                EText.name,
-                "You tapped the logo!",
-                snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: EColors.white,
-                colorText: EColors.black,
-              );
-            },
-            child: Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                color: EColors.white,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.white.withOpacity(0.4),
-                    blurRadius: 20,
-                    spreadRadius: 5,
-                  ),
-                ],
-              ),
-              child: const Center(
-                child: Text(
-                  EText.name,
-                  style: TextStyle(
-                    color: EColors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
-                  ),
-                ),
+          Padding(
+            padding: const EdgeInsets.all(ESizes.defaultSpace),
+            child: GradientOverlay(
+              child: SvgPicture.asset(
+                EImages.logoBlackSVG,
+                width: logoSize,
+                height: logoSize,
+                fit: BoxFit.contain,
               ),
             ),
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            "Welcome to the world of Ras3uCat",
-            style: TextStyle(color: Colors.white70, fontSize: 16),
           ),
         ],
       ),

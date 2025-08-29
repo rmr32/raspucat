@@ -17,8 +17,8 @@ class Ras3uCatApp extends StatelessWidget {
       title: "Ras3uCat",
 
       themeMode: ThemeMode.dark,
-      // theme: EAppTheme.lightTheme,
-      // darkTheme: EAppTheme.darkTheme,
+      theme: EAppTheme.lightTheme,
+      darkTheme: EAppTheme.darkTheme,
       initialBinding: GeneralBindings(),
       getPages: AppRoutes.pages,
       initialRoute: ERoutes.home,

@@ -1,21 +1,23 @@
-import 'package:flutter/material.dart';
+import 'package:raspucat/utils/constants/exports.dart';
 
 class EColors {
   EColors._();
 
+  // static const Color _midnight = Color(0xFF000612);
+
   /// --- App Basic Colors --- ///
   ///
   ///
-  static const Color primary = Color(0xFF515948);
+  static const Color primary = Color(0xFF58E3EF);
   static const Color secondary = Color(0xFFD9BDAD);
   static const Color tertiary = Color(0xFF607D8B);
-  static const Color accent = Color(0xFFF2A03D);
+  static const Color accent = Color(0xFFD34CF1);
 
   /// --- Background Colors --- ///
   ///
   ///
   static const Color backgroundLight = EColors.white;
-  static const Color backgroundDark = EColors.black;
+  static const Color backgroundDark = Color(0xFF000612);
 
   /// --- Gradient Colors --- ///
   ///
