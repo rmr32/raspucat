@@ -28,7 +28,7 @@ jobs:
           
       # Build web
       - name: Build Flutter Web
-        run: flutter build web --release --base-href ./
+        run: flutter build web --release 
 
       # Deploy to gh-pages
       - name: Deploy to GitHub Pages
