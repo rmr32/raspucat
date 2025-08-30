@@ -11,7 +11,7 @@ class ProjectsScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           NeonText(
-            text: "Coming Soon".toUpperCase(),
+            text: EText.projectsHeading.toUpperCase(),
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ],

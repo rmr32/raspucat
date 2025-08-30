@@ -17,5 +17,10 @@ class EText {
   ///
   static const String heroHeading = name;
   static const String heroSubtext =
-      'Building the future, one line of code at a time';
+      'Building the future, \none line of code at a time';
+
+  /// --- PROJECTS SCREEN TEXT --- ///
+  ///
+  ///
+  static const String projectsHeading = 'Coming Soon';
 }

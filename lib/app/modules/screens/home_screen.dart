@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(color: EColors.textPrimary),
+              textAlign: TextAlign.center,
             ),
             // NeonButton(onTap: () {}, child: Text("Contact Us")),
           ],
