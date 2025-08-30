@@ -1,12 +1,14 @@
 import 'package:raspucat/utils/constants/exports.dart';
 
+final AutoSizeGroup headline = AutoSizeGroup();
+
 /// --- REUSABLE NEON TEXT WIDGET --- ///
 class NeonText extends StatelessWidget {
   final String text;
   final TextStyle? style;
   final TextAlign? textAlign;
   final Color neonColor;
-  final bool isGradient;
+  final bool isHeadline;
 
   const NeonText({
     super.key,
@@ -14,12 +16,14 @@ class NeonText extends StatelessWidget {
     this.style,
     this.textAlign,
     this.neonColor = EColors.primary,
-    this.isGradient = false,
+    this.isHeadline = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final double width = MediaQuery.of(context).size.width;
+    return AutoSizeText(
+      group: isHeadline ? headline : null,
       text,
       style: (style ?? const TextStyle()).copyWith(
         shadows: [
@@ -31,6 +35,10 @@ class NeonText extends StatelessWidget {
         ],
       ),
       textAlign: textAlign ?? TextAlign.center,
+      wrapWords: false,
+      softWrap: true,
+      maxLines: 2,
+
       strutStyle: StrutStyle(
         forceStrutHeight: true,
         height: 0.7,

@@ -9,7 +9,6 @@ class EScrollController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Add scroll listener for animations
     scrollController.addListener(_onScroll);
   }
 
