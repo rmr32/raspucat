@@ -20,9 +20,8 @@ class TriangleWidget extends StatelessWidget {
 
     return Obx(() {
       final triangle = triangleController.triangles[index].value;
-      final scrollOffset = scrollController.scrollController.hasClients
-          ? scrollController.scrollController.offset
-          : 0.0;
+
+      final scrollOffset = scrollController.scrollOffset.value;
 
       // Calculate parallax offset based on triangle size
       // Larger triangles move slower (more background), smaller triangles move faster (more foreground)

@@ -7,8 +7,15 @@ class EText {
 
   /// ------------------------------------------------------------------ ///
 
-  /// --- Screen Name Text --- ///
+  /// --- APP TEXT --- ///
   ///
   ///
   static const String name = 'Ras3uCat';
+
+  /// --- HERO SCREEN TEXT --- ///
+  ///
+  ///
+  static const String heroHeading = name;
+  static const String heroSubtext =
+      'Building the future, one line of code at a time';
 }

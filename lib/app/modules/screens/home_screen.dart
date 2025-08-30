@@ -5,6 +5,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
+    final isMobile = width < ESizes.mobile;
+
     return SectionContainer(
       child: Center(
         child: Column(
@@ -13,12 +17,15 @@ class HomeScreen extends StatelessWidget {
           children: [
             CenterLogo(),
             const SizedBox(height: ESizes.spaceBtwSections),
-            NeonText(
-              text: EText.name.toUpperCase(),
-              style: Theme.of(context).textTheme.headlineLarge,
+            FittedBox(
+              child: NeonText(
+                text: EText.heroHeading.toUpperCase(),
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
             ),
+
             Text(
-              "Building the future, one line of code at a time".toUpperCase(),
+              EText.heroSubtext.toUpperCase(),
               style: Theme.of(
                 context,
               ).textTheme.titleLarge?.copyWith(color: EColors.textPrimary),

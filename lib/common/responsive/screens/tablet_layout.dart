@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:raspucat/utils/constants/exports.dart';
 
 class TabletLayout extends StatelessWidget {
   const TabletLayout({super.key, this.body});
@@ -7,6 +7,6 @@ class TabletLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const DesktopLayout();
   }
 }

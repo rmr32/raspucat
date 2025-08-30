@@ -6,19 +6,22 @@ class BackgroundTriangles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// --- CONTROLLERS --- ///
-    final controller = Get.find<TriangleController>();
+
+    final triangleController = TriangleController.instance;
 
     return AnimatedBuilder(
-      animation: controller.animationController,
+      animation: triangleController.animationController,
       builder: (context, _) {
         return LayoutBuilder(
           builder: (context, constraints) {
             return Stack(
-              children: List.generate(controller.triangles.length, (index) {
+              children: List.generate(triangleController.triangles.length, (
+                index,
+              ) {
                 return TriangleWidget(
                   index: index,
                   constraints: constraints,
-                  animationValue: controller.animationController.value,
+                  animationValue: triangleController.animationController.value,
                 );
               }),
             );
