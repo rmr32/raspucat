@@ -22,31 +22,62 @@ class NeonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    return AutoSizeText(
-      group: isHeadline ? headline : null,
-      text,
-      style: (style ?? const TextStyle()).copyWith(
-        shadows: [
-          for (double i = 1; i < 4; i++)
-            Shadow(
-              color: neonColor.withOpacity(1 - (i * 0.2)),
-              blurRadius: 3 * i,
-            ),
-        ],
-      ),
-      textAlign: textAlign ?? TextAlign.center,
-      wrapWords: false,
-      softWrap: true,
-      maxLines: 2,
+    final bool isIOS = EDeviceUtils.isIOS();
+    return isIOS
+        ? FittedBox(
+            child: Text(
+              text,
+              style: (style ?? const TextStyle()).copyWith(
+                shadows: [
+                  for (double i = 1; i < 4; i++)
+                    Shadow(
+                      color: neonColor.withOpacity(1 - (i * 0.2)),
+                      blurRadius: 3 * i,
+                    ),
+                ],
+              ),
+              textAlign: textAlign ?? TextAlign.center,
 
-      strutStyle: StrutStyle(
-        forceStrutHeight: true,
-        height: 0.7,
-        leading: 0,
-        fontSize: style?.fontSize,
-        fontFamily: style?.fontFamily,
-        fontWeight: style?.fontWeight,
-      ),
-    );
+              softWrap: true,
+              maxLines: 2,
+
+              strutStyle: StrutStyle(
+                forceStrutHeight: true,
+                height: 0.7,
+                leading: 0,
+                fontSize: style?.fontSize,
+                fontFamily: style?.fontFamily,
+                fontWeight: style?.fontWeight,
+              ),
+            ),
+          )
+        : AutoSizeText(
+            group: isHeadline ? headline : null,
+            text,
+            style: (style ?? const TextStyle()).copyWith(
+              shadows: [
+                for (double i = 1; i < 4; i++)
+                  Shadow(
+                    color: neonColor.withOpacity(1 - (i * 0.2)),
+                    blurRadius: 3 * i,
+                  ),
+              ],
+            ),
+            textAlign: textAlign ?? TextAlign.center,
+            stepGranularity: 1,
+            wrapWords: false,
+            softWrap: true,
+            maxLines: 2,
+
+            strutStyle: StrutStyle(
+              forceStrutHeight: true,
+              height: 0.7,
+              leading: 0,
+              fontSize: style?.fontSize,
+              fontFamily: style?.fontFamily,
+              fontWeight: style?.fontWeight,
+            ),
+          );
   }
 }
+// if (EDeviceUtils.isIOS())

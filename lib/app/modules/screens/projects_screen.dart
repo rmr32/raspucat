@@ -14,6 +14,10 @@ class ProjectsScreen extends StatelessWidget {
             text: EText.projectsHeading.toUpperCase(),
             style: Theme.of(context).textTheme.headlineLarge,
           ),
+          // NeonText(
+          //   text: "test".toUpperCase(),
+          //   style: Theme.of(context).textTheme.headlineLarge,
+          // ),
         ],
       ),
     );
