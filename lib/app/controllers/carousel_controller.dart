@@ -7,8 +7,9 @@ class ECarouselController extends GetxController {
       CarouselSliderController();
   final currentPage = 0.obs;
   final List<ProjectModel> projects;
-
+  // final RxList<ProjectModel> projects = <ProjectModel>[].obs;
   ECarouselController({required this.projects});
+  final RxInt hoveredIndex = (-1).obs;
 
   void onPageChanged(int index) {
     currentPage.value = index;
@@ -16,5 +17,13 @@ class ECarouselController extends GetxController {
 
   void jumpTo(int index) {
     carouselController.animateToPage(index);
+  }
+
+  void setHoveredIndex(int index) {
+    hoveredIndex.value = index;
+  }
+
+  void clearHover() {
+    hoveredIndex.value = -1;
   }
 }

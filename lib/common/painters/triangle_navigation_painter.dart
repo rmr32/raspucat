@@ -3,14 +3,21 @@ import 'package:raspucat/utils/constants/exports.dart';
 class TriangleNavigationPainter extends CustomPainter {
   final Color color;
   final bool isActive;
+  final bool isHovered;
 
-  TriangleNavigationPainter({required this.color, required this.isActive});
+  TriangleNavigationPainter({
+    required this.color,
+    required this.isActive,
+    required this.isHovered,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
-      ..style = isActive ? PaintingStyle.fill : PaintingStyle.stroke;
+      ..style = isHovered || isActive
+          ? PaintingStyle.fill
+          : PaintingStyle.stroke;
 
     final strokePaint = Paint()
       ..color = color.withOpacity(0.8)
@@ -55,6 +62,8 @@ class TriangleNavigationPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TriangleNavigationPainter oldDelegate) {
-    return oldDelegate.color != color || oldDelegate.isActive != isActive;
+    return oldDelegate.color != color ||
+        oldDelegate.isHovered != isHovered ||
+        oldDelegate.isActive != isActive;
   }
 }

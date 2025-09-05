@@ -7,6 +7,9 @@ class ProjectsCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
+    final isMobile = width < ESizes.mobile;
     return Column(
       children: [
         /// --- CAROUSEL SLIDER --- ///
@@ -20,8 +23,9 @@ class ProjectsCarousel extends StatelessWidget {
             itemCount: controller.projects.length,
             options: CarouselOptions(
               height: ESizes.carouselHeightMd,
+
               enlargeCenterPage: true,
-              viewportFraction: 0.5,
+              viewportFraction: isMobile ? 0.9 : 0.5,
               enableInfiniteScroll: true,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
@@ -63,35 +67,25 @@ class ProjectsCarousel extends StatelessWidget {
             children: List.generate(controller.projects.length, (index) {
               final isActive = controller.currentPage.value == index;
               final project = controller.projects[index];
+              final isHovered = controller.hoveredIndex.value == index;
 
-              return GestureDetector(
-                onTap: () => controller.jumpTo(index),
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 8),
-                  //                   width: isActive ? 32 : 12,
-                  // height: 12,
-                  // decoration: BoxDecoration(
-                  //   borderRadius: BorderRadius.circular(6),
-                  //   color: isActive
-                  //       ? EColors.primary
-                  //       : Colors.white.withOpacity(
-                  //           0.6,
-                  //         ), // Fallback color for visibility
-                  //   boxShadow: isActive
-                  //       ? [
-                  //           BoxShadow(
-                  //             color: EColors.primary.withOpacity(0.5),
-                  //             blurRadius: 8,
-                  //             spreadRadius: 2,
-                  //           ),
-                  //         ]
-                  //       : null,
-                  child: CustomPaint(
-                    size: Size(isActive ? 24 : 16, isActive ? 24 : 16),
-                    painter: TriangleNavigationPainter(
-                      color: EColors.primary,
+              return MouseRegion(
+                cursor: SystemMouseCursors.click,
+                onEnter: (_) => controller.setHoveredIndex(index),
+                onExit: (_) => controller.clearHover(),
+                child: GestureDetector(
+                  onTap: () => controller.jumpTo(index),
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    margin: const EdgeInsets.symmetric(horizontal: 8),
 
-                      isActive: isActive,
+                    child: CustomPaint(
+                      size: Size((isActive ? 24 : 16), (isActive ? 24 : 16)),
+                      painter: TriangleNavigationPainter(
+                        color: EColors.primary,
+                        isHovered: isHovered,
+                        isActive: isActive,
+                      ),
                     ),
                   ),
                 ),
