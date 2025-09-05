@@ -1,0 +1,105 @@
+import 'package:raspucat/utils/constants/exports.dart';
+
+class ProjectsCarousel extends StatelessWidget {
+  final ECarouselController controller;
+
+  const ProjectsCarousel({super.key, required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        /// --- CAROUSEL SLIDER --- ///
+        ///
+        ///
+        Obx(() {
+          final currentPage = controller.currentPage.value;
+
+          return CarouselSlider.builder(
+            carouselController: controller.carouselController,
+            itemCount: controller.projects.length,
+            options: CarouselOptions(
+              height: ESizes.carouselHeightMd,
+              enlargeCenterPage: true,
+              viewportFraction: 0.5,
+              enableInfiniteScroll: true,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              onPageChanged: (index, reason) {
+                controller.onPageChanged(index);
+              },
+            ),
+            itemBuilder: (context, index, realIndex) {
+              final project = controller.projects[index];
+              final isSelected = currentPage == index;
+
+              /// --- PROJECT CARD --- ///
+              ///
+              ///
+              return ProjectCard(
+                title: project.title,
+                description: project.description,
+                imagePath: project.imagePath,
+                technologies: project.technologies,
+                githubUrl: project.githubUrl,
+                liveUrl: project.liveUrl,
+                isSelected: isSelected,
+                onTap: () {
+                  // Handle project tap
+                },
+              );
+            },
+          );
+        }),
+
+        const SizedBox(height: ESizes.spaceBtwSections),
+
+        /// --- NAVIGATION TRIANGLES --- ///
+        ///
+        ///
+        Obx(() {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(controller.projects.length, (index) {
+              final isActive = controller.currentPage.value == index;
+              final project = controller.projects[index];
+
+              return GestureDetector(
+                onTap: () => controller.jumpTo(index),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  //                   width: isActive ? 32 : 12,
+                  // height: 12,
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.circular(6),
+                  //   color: isActive
+                  //       ? EColors.primary
+                  //       : Colors.white.withOpacity(
+                  //           0.6,
+                  //         ), // Fallback color for visibility
+                  //   boxShadow: isActive
+                  //       ? [
+                  //           BoxShadow(
+                  //             color: EColors.primary.withOpacity(0.5),
+                  //             blurRadius: 8,
+                  //             spreadRadius: 2,
+                  //           ),
+                  //         ]
+                  //       : null,
+                  child: CustomPaint(
+                    size: Size(isActive ? 24 : 16, isActive ? 24 : 16),
+                    painter: TriangleNavigationPainter(
+                      color: EColors.primary,
+
+                      isActive: isActive,
+                    ),
+                  ),
+                ),
+              );
+            }),
+          );
+        }),
+      ],
+    );
+  }
+}

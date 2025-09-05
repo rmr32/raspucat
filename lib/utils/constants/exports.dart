@@ -30,6 +30,8 @@ export 'package:raspucat/app/modules/screens/home_screen.dart';
 export 'package:raspucat/app/controllers/scroll_controller.dart';
 export 'package:raspucat/app/controllers/gradient_controller.dart';
 export 'package:raspucat/app/controllers/triangle_controller.dart';
+export 'package:raspucat/app/controllers/scroll_animation_controller.dart';
+export 'package:raspucat/app/controllers/carousel_controller.dart';
 
 /// ------------------------------------------------------------------ ///
 /// CONSTANTS
@@ -55,6 +57,9 @@ export 'package:raspucat/app/modules/widgets/center_logo.dart';
 export 'package:raspucat/common/widgets/text/neon_text.dart';
 export 'package:raspucat/common/widgets/gradients/gradient_overlay.dart';
 export 'package:raspucat/common/widgets/buttons/neon_button.dart';
+export 'package:raspucat/common/widgets/animations/animation_on_view.dart';
+export 'package:raspucat/common/widgets/cards/project_card.dart';
+export 'package:raspucat/common/widgets/carousel/projects_carousel.dart';
 
 /// ------------------------------------------------------------------ ///
 /// PAINTERS
@@ -62,6 +67,7 @@ export 'package:raspucat/common/widgets/buttons/neon_button.dart';
 ///
 ///
 export 'package:raspucat/common/painters/triangle_painter.dart';
+export 'package:raspucat/common/painters/triangle_navigation_painter.dart';
 
 /// ------------------------------------------------------------------ ///
 /// APP THEMES
@@ -83,7 +89,15 @@ export 'package:raspucat/bindings.dart/general_bindings.dart';
 ///
 ///
 ///
+export 'package:raspucat/app/data/models/project_model.dart';
 export 'package:raspucat/app/data/models/triangle_model.dart';
+
+/// ------------------------------------------------------------------ ///
+/// DATA
+///
+///
+///
+export 'package:raspucat/app/data/projects/project_data.dart';
 
 /// ------------------------------------------------------------------ ///
 /// ROUTES
@@ -113,3 +127,6 @@ export 'package:get/get.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_svg/flutter_svg.dart';
 export 'package:auto_size_text/auto_size_text.dart';
+export 'package:visibility_detector/visibility_detector.dart';
+export 'package:carousel_slider/carousel_slider.dart';
+export 'package:smooth_page_indicator/smooth_page_indicator.dart';

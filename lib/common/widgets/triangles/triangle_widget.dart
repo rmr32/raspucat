@@ -65,8 +65,8 @@ class TriangleWidget extends StatelessWidget {
           child: GestureDetector(
             onTap: () => triangleController.onTriangleTap(index),
             // Allow scroll events to pass through
-            // behavior: HitTestBehavior.translucent,
-            behavior: HitTestBehavior.deferToChild,
+            behavior: HitTestBehavior.translucent,
+            // behavior: HitTestBehavior.deferToChild,
             child: Transform.rotate(
               angle: triangle.rotation + animationValue * 2 * pi,
               child: AnimatedContainer(

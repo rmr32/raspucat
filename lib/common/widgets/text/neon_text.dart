@@ -1,6 +1,7 @@
 import 'package:raspucat/utils/constants/exports.dart';
 
 final AutoSizeGroup headline = AutoSizeGroup();
+final AutoSizeGroup defaultGroup = AutoSizeGroup();
 
 /// --- REUSABLE NEON TEXT WIDGET --- ///
 class NeonText extends StatelessWidget {
@@ -52,7 +53,7 @@ class NeonText extends StatelessWidget {
             ),
           )
         : AutoSizeText(
-            group: isHeadline ? headline : null,
+            group: isHeadline ? headline : defaultGroup,
             text,
             style: (style ?? const TextStyle()).copyWith(
               shadows: [

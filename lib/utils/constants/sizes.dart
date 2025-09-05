@@ -82,12 +82,14 @@ class ESizes {
   /// COMMON
   ///
   ///
-  /// --- Padding and margin sizes --- ///
+  ///
+
+  /// --- GENERAL SIZES --- ///
   static const double xs = 4.0;
-  static const double sm = 8.0; // --- Using on Home Page
+  static const double sm = 8.0;
   static const double md = 16.0;
   static const double lg = 24.0;
-  static const double xl = 32.0; // -- Using on Drawer
+  static const double xl = 32.0;
 
   /// --- Default Spacing Between Selections --- ///
   static const double defaultSpace = 24.0;
@@ -112,8 +114,8 @@ class ESizes {
   /// --- Border Radius --- ///
   static const double borderRadiusSM = 4.0;
   static const double borderRadiusMd = 8.0;
-  static const double borderRadiusLg = 30; // --- Using on ECard
-  static const double borderRadiusXl = 50; // --- Using on Home Page
+  static const double borderRadiusLg = 16.0;
+  static const double borderRadiusXl = 50;
   static const double borderRadiusXxl = 100;
 
   /// --- Border Width --- ///
@@ -202,13 +204,16 @@ class ESizes {
   );
 
   /// ------------------------------------------------------------------ ///
-  /// IMAGES
+  /// --- IMAGE SIZZES --- ///
   ///
   ///
-  /// --- Image Sizes --- ///
+  ///
+
+  /// --- IMAGE --- ///
   static const double imageThumbSize = 80.0;
   static const double imageSizeSm = 60;
-  static const double imageSizeLg = 100.0;
+  static const double imageSizeMd = 100.0;
+  static const double imageSizeLg = 200.0;
   static const double imageSizeXl = 300; // --- Using in About Page
   static const double imageSizeXxl = 500.0;
 
@@ -244,7 +249,7 @@ class ESizes {
   ///
   ///
   /// Carousel Height
-  static const double carouselHeight = 200.0;
+  static const double carouselHeightMd = 400.0;
 
   /// ------------------------------------------------------------------ ///
   /// LOADING INDICATOR

@@ -7,5 +7,7 @@ class GeneralBindings extends Bindings {
     Get.put(TriangleController());
     Get.put(GradientController());
     Get.put(EScrollController());
+    Get.put(SectionAnimationController());
+    Get.put(ECarouselController(projects: EData.projects));
   }
 }

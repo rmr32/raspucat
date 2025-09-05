@@ -22,5 +22,5 @@ class EText {
   /// --- PROJECTS SCREEN TEXT --- ///
   ///
   ///
-  static const String projectsHeading = 'Coming Soon';
+  static const String projectsHeading = 'Projects';
 }
