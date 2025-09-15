@@ -35,7 +35,7 @@ class ProjectsScreen extends StatelessWidget {
             controller: sectionAnimationController,
             startOffset: const Offset(0, 50),
             child: Text(
-              "Explore my latest projects and creations",
+              EText.projectsSubheading,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: EColors.textPrimary.withOpacity(0.8),
               ),

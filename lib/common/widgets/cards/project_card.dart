@@ -1,23 +1,13 @@
 import 'package:raspucat/utils/constants/exports.dart';
 
 class ProjectCard extends StatelessWidget {
-  final String title;
-  final String description;
-  final String imagePath;
-  final List<String> technologies;
-  final String? githubUrl;
-  final String? liveUrl;
+  final ProjectModel project;
   final VoidCallback? onTap;
   final bool isSelected;
 
   const ProjectCard({
     super.key,
-    required this.title,
-    required this.description,
-    required this.imagePath,
-    required this.technologies,
-    this.githubUrl,
-    this.liveUrl,
+    required this.project,
     this.onTap,
     this.isSelected = true,
   });
@@ -25,7 +15,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 500,
+      width: ESizes.carouselWidth,
       margin: const EdgeInsets.symmetric(
         horizontal: ESizes.md,
         vertical: ESizes.sm,
@@ -77,7 +67,7 @@ class ProjectCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    child: imagePath != ''
+                    child: project.imagePaths.isNotEmpty
                         ? ClipRRect(
                             borderRadius: BorderRadius.circular(
                               ESizes.borderRadiusLg,
@@ -85,7 +75,7 @@ class ProjectCard extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Image.asset(
-                                  imagePath,
+                                  project.imagePaths.first,
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
@@ -113,7 +103,7 @@ class ProjectCard extends StatelessWidget {
                   NeonText(
                     isHeadline: false,
                     neonColor: EColors.textPrimary.withOpacity(0.5),
-                    text: title.toUpperCase(),
+                    text: project.title.toUpperCase(),
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       color: EColors.textPrimary,
                     ),
@@ -125,7 +115,7 @@ class ProjectCard extends StatelessWidget {
                   Wrap(
                     spacing: ESizes.sm,
                     runSpacing: ESizes.sm,
-                    children: technologies.take(3).map((tech) {
+                    children: project.technologies.take(3).map((tech) {
                       return Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 12,
@@ -157,7 +147,7 @@ class ProjectCard extends StatelessWidget {
                   if (isSelected) ...[
                     const SizedBox(height: ESizes.spaceBtwInputFields / 2),
                     AutoSizeText(
-                      description,
+                      project.description,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: EColors.textPrimary.withOpacity(0.8),
                       ),

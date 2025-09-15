@@ -2,9 +2,6 @@ import 'package:raspucat/utils/constants/exports.dart';
 
 class ESizes {
   ESizes._();
-  static const double circleTextRadius = 100;
-  static const double circleTextRadiusMobile = 65;
-  static const double circltTextRadiusMax = 600;
 
   /// ------------------------------------------------------------------ ///
   /// POSITIONS
@@ -115,7 +112,7 @@ class ESizes {
   static const double borderRadiusSM = 4.0;
   static const double borderRadiusMd = 8.0;
   static const double borderRadiusLg = 16.0;
-  static const double borderRadiusXl = 50;
+  static const double borderRadiusXl = 32;
   static const double borderRadiusXxl = 100;
 
   /// --- Border Width --- ///
@@ -177,6 +174,7 @@ class ESizes {
   static const double cardRadiusMd = 12.0;
   static const double cardRadiusLg = 16.0;
   static const double cardElevation = 2.0;
+  static const double carouselWidth = 500;
 
   /// ------------------------------------------------------------------ ///
   /// APPBARS
@@ -214,7 +212,7 @@ class ESizes {
   static const double imageSizeSm = 60;
   static const double imageSizeMd = 100.0;
   static const double imageSizeLg = 200.0;
-  static const double imageSizeXl = 300; // --- Using in About Page
+  static const double imageSizeXl = 300;
   static const double imageSizeXxl = 500.0;
 
   /// --- Circle Image Sizes --- ///

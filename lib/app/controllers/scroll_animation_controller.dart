@@ -17,4 +17,10 @@ class SectionAnimationController extends GetxController {
   void show(String id) {
     get(id).value = true;
   }
+
+  @override
+  void onClose() {
+    elements.clear();
+    super.onClose();
+  }
 }

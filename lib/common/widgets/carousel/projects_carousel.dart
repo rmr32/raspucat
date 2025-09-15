@@ -1,4 +1,5 @@
 import 'package:raspucat/utils/constants/exports.dart';
+import 'package:raspucat/utils/popups/loaders.dart';
 
 class ProjectsCarousel extends StatelessWidget {
   final ECarouselController controller;
@@ -41,15 +42,11 @@ class ProjectsCarousel extends StatelessWidget {
               ///
               ///
               return ProjectCard(
-                title: project.title,
-                description: project.description,
-                imagePath: project.imagePath,
-                technologies: project.technologies,
-                githubUrl: project.githubUrl,
-                liveUrl: project.liveUrl,
+                project: project,
+
                 isSelected: isSelected,
                 onTap: () {
-                  // Handle project tap
+                  ELoaders.customDialog(child: ProjectScreen(project: project));
                 },
               );
             },

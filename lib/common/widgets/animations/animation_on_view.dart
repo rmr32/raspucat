@@ -13,7 +13,7 @@ class AnimatedOnView extends StatelessWidget {
     required this.child,
     required this.controller,
     this.startOffset = const Offset(0, 50),
-    this.duration = const Duration(milliseconds: 600),
+    this.duration = EDurations.animationOnView,
   });
 
   @override

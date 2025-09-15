@@ -26,4 +26,11 @@ class ECarouselController extends GetxController {
   void clearHover() {
     hoveredIndex.value = -1;
   }
+
+  @override
+  void onClose() {
+    hoveredIndex.close();
+    currentPage.close();
+    super.onClose();
+  }
 }

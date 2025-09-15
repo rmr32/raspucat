@@ -42,7 +42,9 @@ export 'package:raspucat/utils/constants/colors.dart';
 export 'package:raspucat/utils/constants/text.dart';
 export 'package:raspucat/utils/constants/sizes.dart';
 export 'package:raspucat/utils/constants/images.dart';
-export 'package:raspucat/utils/constants/device/device_utility.dart';
+export 'package:raspucat/utils/constants/icons.dart';
+export 'package:raspucat/utils/constants/durations.dart';
+export 'package:raspucat/utils/device/device_utility.dart';
 
 /// ------------------------------------------------------------------ ///
 /// WIDGETS
@@ -60,6 +62,8 @@ export 'package:raspucat/common/widgets/buttons/neon_button.dart';
 export 'package:raspucat/common/widgets/animations/animation_on_view.dart';
 export 'package:raspucat/common/widgets/cards/project_card.dart';
 export 'package:raspucat/common/widgets/carousel/projects_carousel.dart';
+export 'package:raspucat/app/modules/widgets/project_screen.dart';
+export 'package:raspucat/common/widgets/dialogs/dialog.dart';
 
 /// ------------------------------------------------------------------ ///
 /// PAINTERS
@@ -74,8 +78,8 @@ export 'package:raspucat/common/painters/triangle_navigation_painter.dart';
 ///
 ///
 ///
-export 'package:raspucat/utils/constants/theme/theme.dart';
-export 'package:raspucat/utils/constants/theme/custom_theme/text_theme.dart';
+export 'package:raspucat/utils/theme/theme.dart';
+export 'package:raspucat/utils/theme/custom_theme/text_theme.dart';
 
 /// ------------------------------------------------------------------ ///
 /// BINDINGS
@@ -117,6 +121,7 @@ export 'dart:math';
 export 'dart:io' hide HeaderValue;
 export 'package:flutter/foundation.dart';
 export 'package:flutter/services.dart';
+export 'package:url_launcher/url_launcher_string.dart';
 
 /// ------------------------------------------------------------------ ///
 /// PUB PACKAGES
@@ -130,3 +135,4 @@ export 'package:auto_size_text/auto_size_text.dart';
 export 'package:visibility_detector/visibility_detector.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
+export 'package:font_awesome_flutter/font_awesome_flutter.dart';
