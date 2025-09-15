@@ -25,7 +25,7 @@ class EData {
       liveUrl: 'https://dashingbeardco.com',
       imagePaths: [
         'assets/images/projects/dashing_beard_co_hero.gif',
-        'assets/images/projects/dashing_beard_co_full.gif',
+        // 'assets/images/projects/dashing_beard_co_full.gif',
         'assets/images/projects/dashing_beard_co.png',
       ],
     ),
