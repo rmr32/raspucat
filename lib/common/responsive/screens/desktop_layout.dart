@@ -11,24 +11,38 @@ class DesktopLayout extends StatelessWidget {
     /// --- CONTROLLERS --- ///
     final scrollController = EScrollController.instance;
 
+    /// --- METHOD 1 --- ///
+    //     return Scaffold(
+    //       backgroundColor: EColors.backgroundDark,
+    //       body: Stack(
+    //         children: [
+    //           SingleChildScrollView(
+    //             controller: scrollController.scrollController,
+    //             child: Column(children: [HomeScreen(), ProjectsScreen()]),
+    //           ),
+    //           BackgroundTriangles(),
+    //         ],
+    //       ),
+    //     );
+    //   }
+    // }
+
+    /// --- METHOD 2 --- ///
     return Scaffold(
       backgroundColor: EColors.backgroundDark,
-      body: Stack(
-        children: [
-          // BackgroundTriangles(),
-          Column(
+      body: SingleChildScrollView(
+        controller: scrollController.scrollController,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 2,
+          // width: MediaQuery.of(context).size.width,
+          child: Stack(
             children: [
-              // SizedBox(height: ESizes.appBarHeight),
-              Expanded(
-                child: SingleChildScrollView(
-                  controller: scrollController.scrollController,
-                  child: Column(children: [HomeScreen(), ProjectsScreen()]),
-                ),
-              ),
+              BackgroundTriangles(),
+              Column(children: [HomeScreen(), ProjectsScreen()]),
+              // BackgroundTriangles(),
             ],
           ),
-          BackgroundTriangles(),
-        ],
+        ),
       ),
     );
   }

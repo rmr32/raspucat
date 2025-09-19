@@ -26,7 +26,7 @@ class ProjectsCarousel extends StatelessWidget {
               height: ESizes.carouselHeightMd,
 
               enlargeCenterPage: true,
-              viewportFraction: isMobile ? 0.9 : 0.5,
+              viewportFraction: isMobile ? 0.9 : 0.4,
               enableInfiniteScroll: true,
               autoPlay: true,
               autoPlayInterval: const Duration(seconds: 3),
